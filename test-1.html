@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8" />
+    <title>Fabric Test</title>
+    <link rel="stylesheet" href="css/reset.css" media="screen"  type="text/css" />
+    <link rel="stylesheet" href="css/style.css" media="screen"  type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="draw-area">
+            <canvas id="canvas" width="900" height="400"></canvas>
+        </div>
+
+        <div class="group-button">
+            <button type="button" onclick="addRectangle();">H.Vuong</button>
+            <button type="button" onclick="addCircle();">H.Tron</button>
+            <button type="button" onclick="addTriangle();">H.Tam giac</button>
+            <button type="button" onclick="addEclipse();">H.Eclipse</button>
+            <button type="button" onclick="addStar();">H.Sao</button>
+            <button type="button" onclick="addStar2();">H.Sao 2</button>
+        </div>
+
+        <div class="group-button">
+            <label>Stroke: <input type="text" class="color" id="shapeStroke" readonly="readonly"/></label>
+            <label>Fill: <input type="text" class="color" id="shapeFill" readonly="readonly"/></label>
+        </div>
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-2.1.4.min.js" ></script>
+    <script src="js/jscolor/jscolor.js" ></script>
+    <script src="js/fabric.min.js" ></script>
+    <!-- <script src="js/plugins/fabric.prototype.js" ></script> -->
+    <script src="js/plugins/fabric.star.js" ></script>
+    <script src="js/script.js" ></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+* {
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px 0px;
+}
+
+.wrapper {
+    width: 900px;
+    margin: 0px auto;
+}
+
+.draw-area {
+    width: 900px;
+    height: 420px;
+}
+
+#canvas {
+    border: 1px solid #dcdcdc;
+    background: url(../img/dot.gif) 9px 9px;
+}
+
+.color {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #dcdcdc;
+    font-size: 0px;
+}
+
+.group-button {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dcdcdc;
+}
