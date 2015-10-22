@@ -1,9 +1,5 @@
 var canvas = new fabric.Canvas('canvas');
 
-canvas.on('mouse:down', function(e) {
-    selectShape(e)
-});
-
 //OPTION DEFAULT////////////////////////////////////////////////////////////////
 var defaultProperties = {
     borderColor: 'blue',
@@ -27,14 +23,34 @@ function selectShape(e) {
             $('#shapeStroke').val(strokeColorValue);
         }
         if (e.target.fill) {
-            document.getElementById("criempi2").setAttribute("style", "background-color:" + e.target.fill.toString().substr(0, 7));
-            document.getElementById("criempi").setAttribute("style", "background-color:" + e.target.fill.toString().substr(0, 7));
-            document.getElementById("criempi").value = e.target.fill.toString().substr(1, 6);
+            var fillColor = e.target.fill.toString().substr(0, 7);
+            var fillColorValue = e.target.fill.toString().substr(1, 6);
+            console.log(fillColorValue);
+            $('#shapeFill').css({
+                'background-color': fillColor
+            });
+            $('#shapeFill').val(fillColorValue);
         }
     }
 }
 
+function initBoard() {
+    $('#shapeStroke').change(function(){
+        var activeObject = canvas.getActiveObject();
+        if (activeObject) {
+            activeObject.stroke='#'+$(this).val();
+        }
+        canvas.renderAll();
+    });
 
+    $('#shapeFill').change(function(){
+        var activeObject = canvas.getActiveObject();
+        if (activeObject) {
+            activeObject.fill='#'+$(this).val();
+        }
+        canvas.renderAll();
+    });
+}
 //ADD SHAPE/////////////////////////////////////////////////////////////////////
 function addRectangle() {
     var property = {
@@ -114,3 +130,10 @@ function addStar() {
 //     var shape = new fabric.Star(property);
 //     canvas.add(shape);
 // }
+
+//RUN///////////////////////////////////////////////////////////////////////////
+canvas.on('mouse:down', function(e) {
+    selectShape(e)
+});
+
+initBoard();
